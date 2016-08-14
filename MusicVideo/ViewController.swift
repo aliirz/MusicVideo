@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         
         // Call API
         let api = APIManager()
-        api.loadData(urlString: "https://itunes.apple.com/us/rss/topmusicvideos/limit=10/json", completion: didLoadData)
+        api.loadData(urlString: "https://itunes.apple.com/us/rss/topmusicvideos/limit=10/json", completion: didLoadData)    // TODO: error here: value of type 'APIManager' has no member 'loadData' // do we need to cast it explicitly?
     }
     
     func didLoadData(result:String){
