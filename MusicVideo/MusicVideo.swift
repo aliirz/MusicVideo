@@ -11,18 +11,49 @@ import Foundation
 class Videos {
     // Data Encapsulation
     private var _vName:String
+    private var _vRights:String
+    private var _vPrice:String
     private var _vImageUrl:String
+    private var _vArtist:String
     private var _vVideoUrl:String
+    private var _vImid:String
+    private var _vGenre:String
+    private var _vLinkToiTunes:String
+    private var _vReleaseDate:String
     
-    // make a getter
-    var vName:String{
+    // This variable gets created from the UI
+    var vImageData:NSData?
+    
+    // Create getters
+    var vName:String {
         return _vName
     }
-    var vImageUrl:String{
+    var vRights:String {
+        return _vRights
+    }
+    var vPrice:String {
+        return _vPrice
+    }
+    var vImageUrl:String {
         return _vImageUrl
     }
-    var vVideoUrl:String{
+    var vArtist:String {
+        return _vArtist
+    }
+    var vVideoUrl:String {
         return _vVideoUrl
+    }
+    var vImid:String {
+        return _vImid
+    }
+    var vGenre:String {
+        return _vGenre
+    }
+    var vLinkToiTunes:String {
+        return _vLinkToiTunes
+    }
+    var vReleaseDate:String {
+        return _vReleaseDate
     }
     
     // Initializers
@@ -34,11 +65,26 @@ class Videos {
             vName = name["label"] as? String {
             self._vName = vName
         } else {
-            // We may ont always get data back from JSON, initialize to empty string (might also wish to show error msg)
+            // We may not always get data back from JSON, initialize to empty string (might also show error msg)
             _vName = ""
             print("Name Element in JSON is unexpected")
         }
-        
+        // Video Rights
+        if let rights = data["rights"] as? JSONDictionary,
+            vRights = rights["label"] as? String {
+            self._vRights = vRights
+        } else {
+            _vRights = ""
+            print("Rights Element in JSON is unexpected")
+        }
+        // Video Price
+        if let price = data["im:price"] as? JSONDictionary,
+            vPrice = price["label"] as? String {
+            self._vPrice = vPrice
+        } else {
+            _vPrice = ""
+            print("Price Element in JSON is unexpected")
+        }
         // Video Image
         if let img = data["im:image"] as? JSONArray,
             image = img[2] as? JSONDictionary,
@@ -48,8 +94,33 @@ class Videos {
             _vImageUrl = ""
             print("Image Element in JSON is unexpected")
         }
-        
-        // Video Image
+        // Artist
+        if let artist = data["im:artist"] as? JSONDictionary,
+            vArtist = artist["label"] as? String {
+            self._vArtist = vArtist
+        } else {
+            _vArtist = ""
+            print("Artist Element in JSON is unexpected")
+        }
+        // vImid
+        if let imid = data["id"] as? JSONDictionary,
+            vid = imid["attributes"] as? JSONDictionary,
+            vImid = vid["im:id"] as? String {
+            self._vImid = vImid
+        } else {
+            _vImid = ""
+            print("IM:ID Element in JSON is unexpected")
+        }
+        // Genre
+        if let genre = data["category"] as? JSONDictionary,
+            gennre = genre["attributes"] as? JSONDictionary,
+            vGenre = gennre["term"] as? String {
+            self._vGenre = vGenre
+        } else {
+            _vGenre = ""
+            print("Genre Element in JSON is unexpected")
+        }
+        // Video Link
         if let video = data["link"] as? JSONArray,
             vUrl = video[1] as? JSONDictionary,
             vHref = vUrl["attributes"] as? JSONDictionary,
@@ -58,11 +129,24 @@ class Videos {
         } else {
             _vVideoUrl = ""
             print("Video Element in JSON is unexpected")
-            
         }
-        
-        
+        // Link to iTunes
+        if let linkToiTunes = data["id"] as? JSONDictionary,
+            vLinkToiTunes = linkToiTunes["label"] as? String {
+            self._vLinkToiTunes = vLinkToiTunes
+        } else {
+            _vLinkToiTunes = ""
+            print("Link to iTunes 'ID' Element in JSON is unexpected")
+        }
+        // Release Date
+        if let releaseDate = data["im:releaseDate"] as? JSONDictionary,
+            releeaseDate = releaseDate["attributes"] as? JSONDictionary,
+            vReleaseDate = releeaseDate["label"] as? String {
+            self._vReleaseDate = vReleaseDate
+        } else {
+            _vReleaseDate = ""
+            print("Release Date Element in JSON is unexpected")
+        }
     }
-    
 }
 
