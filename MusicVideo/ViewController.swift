@@ -9,22 +9,24 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var videos = [Videos]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Call API
         let api = APIManager()
-        api.loadData(urlString: "https://itunes.apple.com/us/rss/topmusicvideos/limit=10/json", completion: didLoadData)    // TODO: error here: value of type 'APIManager' has no member 'loadData' // do we need to cast it explicitly?
+        api.loadData(urlString: "https://itunes.apple.com/us/rss/topmusicvideos/limit=10/json", completion: didLoadData)
     }
     
-    func didLoadData(result:String){
-        let alert = UIAlertController(title: (result), message: nil, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { (action) -> Void in
-            // Do something if we want
+    func didLoadData(videos: [Videos]){
+        for (index,item) in videos.enumerated() {
+            print("\(index). \(item.vName)")
         }
-        alert.addAction(okAction)
-        self.present(alert, animated: true, completion: nil)
+        
+        
     }
+    
 }
 

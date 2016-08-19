@@ -9,7 +9,7 @@ import Foundation
 class APIManager {
     
 
-    func loadData(urlString:String, completion: (result:String) -> Void ) {
+    func loadData(urlString:String, completion: [Videos] -> Void ) {
             let config = URLSessionConfiguration.ephemeral()
             let session = URLSession(configuration: config)
             let url = NSURL(string: urlString)!
@@ -17,10 +17,7 @@ class APIManager {
             let task = session.dataTask(with: url as URL) {
                 (data, response, error) -> Void in
                 if error != nil {
-                    DispatchQueue.main.asynchronously() {
-                        completion(result: (error!.localizedDescription))
-                    }
-        
+                    print(error!.localizedDescription)
                 } else {
                     
                     // JSONSerialization
@@ -28,22 +25,30 @@ class APIManager {
                     do {
                         /* .allowFragments - to continue processing in case top level object is not Array or Dictionary. Using JSONSerialization with the Do / Try / Catch, converts the NSDATA into a JSON Object and cast it to a Dictionary */
                     
-                        if let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as? [String: AnyObject] {
+                        if let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as? JSONDictionary,
+                        feed = json["feed"] as? JSONDictionary,
+                        entries = feed["entry"] as? JSONArray {
                             
-                            print(json)
+                            var videos = [Videos]()
+                            for entry in entries {
+                                let entry = Videos(data: entry as! JSONDictionary)
+                                videos.append(entry)
+                            }
+                            
+                            let i = videos.count
+                            print("iTunesAPIManager - Total count --> \(i)")
+                            print(" ")
                             
                             let priority = DispatchQueue.GlobalAttributes.qosUserInitiated
                             DispatchQueue.global(attributes: priority).asynchronously() {
                                 DispatchQueue.main.asynchronously() {
-                                    completion(result: "JSONSerialization Successful")
+                                    completion(videos)
                                 }
                             }
                         }
                         
                     } catch {
-                        DispatchQueue.main.asynchronously() {
-                            completion(result: "error in JSONSerialization")
-                        }
+                        print("error in JSONSerialization")
                     }
                     //End of JSONSerialization
                 }
