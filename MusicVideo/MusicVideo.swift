@@ -62,7 +62,7 @@ class Videos {
         
         // Video Name
         if let name = data["im:name"] as? JSONDictionary,
-            vName = name["label"] as? String {
+            let vName = name["label"] as? String {
             self._vName = vName
         } else {
             // We may not always get data back from JSON, initialize to empty string (might also show error msg)
@@ -71,7 +71,7 @@ class Videos {
         }
         // Video Rights
         if let rights = data["rights"] as? JSONDictionary,
-            vRights = rights["label"] as? String {
+            let vRights = rights["label"] as? String {
             self._vRights = vRights
         } else {
             _vRights = ""
@@ -79,7 +79,7 @@ class Videos {
         }
         // Video Price
         if let price = data["im:price"] as? JSONDictionary,
-            vPrice = price["label"] as? String {
+            let vPrice = price["label"] as? String {
             self._vPrice = vPrice
         } else {
             _vPrice = ""
@@ -87,8 +87,8 @@ class Videos {
         }
         // Video Image
         if let img = data["im:image"] as? JSONArray,
-            image = img[2] as? JSONDictionary,
-            immage = image["label"] as? String {
+            let image = img[2] as? JSONDictionary,
+            let immage = image["label"] as? String {
             _vImageUrl = String(immage.replacingOccurrences(of: "100x100", with: "100x100"))
         } else {
             _vImageUrl = ""
@@ -96,7 +96,7 @@ class Videos {
         }
         // Artist
         if let artist = data["im:artist"] as? JSONDictionary,
-            vArtist = artist["label"] as? String {
+            let vArtist = artist["label"] as? String {
             self._vArtist = vArtist
         } else {
             _vArtist = ""
@@ -104,8 +104,8 @@ class Videos {
         }
         // vImid
         if let imid = data["id"] as? JSONDictionary,
-            vid = imid["attributes"] as? JSONDictionary,
-            vImid = vid["im:id"] as? String {
+            let vid = imid["attributes"] as? JSONDictionary,
+            let vImid = vid["im:id"] as? String {
             self._vImid = vImid
         } else {
             _vImid = ""
@@ -113,8 +113,8 @@ class Videos {
         }
         // Genre
         if let genre = data["category"] as? JSONDictionary,
-            gennre = genre["attributes"] as? JSONDictionary,
-            vGenre = gennre["term"] as? String {
+            let gennre = genre["attributes"] as? JSONDictionary,
+            let vGenre = gennre["term"] as? String {
             self._vGenre = vGenre
         } else {
             _vGenre = ""
@@ -122,9 +122,9 @@ class Videos {
         }
         // Video Link
         if let video = data["link"] as? JSONArray,
-            vUrl = video[1] as? JSONDictionary,
-            vHref = vUrl["attributes"] as? JSONDictionary,
-            vVideoUrl = vHref["href"] as? String {
+            let vUrl = video[1] as? JSONDictionary,
+            let vHref = vUrl["attributes"] as? JSONDictionary,
+            let vVideoUrl = vHref["href"] as? String {
             self._vVideoUrl = vVideoUrl
         } else {
             _vVideoUrl = ""
@@ -132,7 +132,7 @@ class Videos {
         }
         // Link to iTunes
         if let linkToiTunes = data["id"] as? JSONDictionary,
-            vLinkToiTunes = linkToiTunes["label"] as? String {
+            let vLinkToiTunes = linkToiTunes["label"] as? String {
             self._vLinkToiTunes = vLinkToiTunes
         } else {
             _vLinkToiTunes = ""
@@ -140,8 +140,8 @@ class Videos {
         }
         // Release Date
         if let releaseDate = data["im:releaseDate"] as? JSONDictionary,
-            releeaseDate = releaseDate["attributes"] as? JSONDictionary,
-            vReleaseDate = releeaseDate["label"] as? String {
+            let releeaseDate = releaseDate["attributes"] as? JSONDictionary,
+            let vReleaseDate = releeaseDate["label"] as? String {
             self._vReleaseDate = vReleaseDate
         } else {
             _vReleaseDate = ""
