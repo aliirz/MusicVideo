@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     func didLoadData(videos: [Videos]){
         print(reachabilityStatus)
         for (index,item) in videos.enumerated() {
-            print("\(index). \(item.vName)")
+            print("\(index).  \(item.vName)")
         }
         
         
