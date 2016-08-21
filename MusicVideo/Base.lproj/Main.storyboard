@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11156"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,29 +16,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="HJO-WE-rpf" detailTextLabel="ClJ-wM-TQc" style="IBUITableViewCellStyleSubtitle" id="A0V-5o-15e">
-                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="132" id="A0V-5o-15e" customClass="MusicVideoTableViewCell" customModule="MusicVideo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="414" height="132"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A0V-5o-15e" id="MUm-hG-1JF">
-                                    <frame key="frameInset" width="414" height="43"/>
+                                    <frame key="frameInset" width="414" height="131"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HJO-WE-rpf">
-                                            <frame key="frameInset" minX="15" minY="4" width="34" height="21"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
-                                            <nil key="textColor"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sd4-Eb-iO5">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="149" id="etH-9R-TJv"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="musicTitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpO-v5-BMe">
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ClJ-wM-TQc">
-                                            <frame key="frameInset" minX="15" minY="25" width="44" height="15"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0QJ-Uu-EZ2">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="39" id="d9h-Wa-MTM"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="NpO-v5-BMe" firstAttribute="leading" secondItem="0QJ-Uu-EZ2" secondAttribute="trailing" constant="16" id="KHe-TY-qfI"/>
+                                        <constraint firstItem="NpO-v5-BMe" firstAttribute="top" secondItem="MUm-hG-1JF" secondAttribute="topMargin" id="KMo-wi-RKT"/>
+                                        <constraint firstItem="NpO-v5-BMe" firstAttribute="trailing" secondItem="MUm-hG-1JF" secondAttribute="trailingMargin" id="NsZ-d5-aPH"/>
+                                        <constraint firstItem="NpO-v5-BMe" firstAttribute="bottom" secondItem="MUm-hG-1JF" secondAttribute="bottomMargin" id="TAR-ww-nfB"/>
+                                        <constraint firstItem="Sd4-Eb-iO5" firstAttribute="leading" secondItem="MUm-hG-1JF" secondAttribute="leadingMargin" id="TVG-2A-thH"/>
+                                        <constraint firstItem="Sd4-Eb-iO5" firstAttribute="top" secondItem="MUm-hG-1JF" secondAttribute="topMargin" constant="5" id="Vqb-Uu-rbp"/>
+                                        <constraint firstItem="0QJ-Uu-EZ2" firstAttribute="leading" secondItem="Sd4-Eb-iO5" secondAttribute="trailing" constant="8" symbolic="YES" id="Wct-9g-Ifz"/>
+                                        <constraint firstItem="0QJ-Uu-EZ2" firstAttribute="centerY" secondItem="NpO-v5-BMe" secondAttribute="centerY" id="bf2-La-hkO"/>
+                                        <constraint firstItem="Sd4-Eb-iO5" firstAttribute="centerY" secondItem="0QJ-Uu-EZ2" secondAttribute="centerY" id="s00-W3-Exk"/>
+                                        <constraint firstItem="0QJ-Uu-EZ2" firstAttribute="top" secondItem="MUm-hG-1JF" secondAttribute="topMargin" constant="46" id="xoM-Zr-Hp8"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="musicImage" destination="Sd4-Eb-iO5" id="0o6-tM-Kag"/>
+                                    <outlet property="musicTitle" destination="NpO-v5-BMe" id="Ftm-JL-8RO"/>
+                                    <outlet property="rank" destination="0QJ-Uu-EZ2" id="9v6-Je-bb9"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -49,7 +72,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Co6-4c-HfZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="700" y="17.934782608695652"/>
+            <point key="canvasLocation" x="698.55072463768124" y="17.934782608695652"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7Ga-50-5mI">

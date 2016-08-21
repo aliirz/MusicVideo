@@ -35,7 +35,7 @@ class MusicVideoTVC: UITableViewController {
     func reachabilityStatusChanged(){
         switch reachabilityStatus{
         case NOACCESS :
-            view.backgroundColor = UIColor.red
+            // view.backgroundColor = UIColor.red
             
             // move back to Main Queue
             DispatchQueue.main.async {
@@ -65,7 +65,7 @@ class MusicVideoTVC: UITableViewController {
             self.present(alert, animated: true, completion: nil)
             }
         default:
-            view.backgroundColor = UIColor.green
+            // view.backgroundColor = UIColor.green
             // no need to run API after Internet status change if video list is already populated
             if videos.count > 0 {
                 print("Do not refresh API")
@@ -79,7 +79,7 @@ class MusicVideoTVC: UITableViewController {
     // call API
     func runAPI(){
         let api = APIManager()
-        api.loadData(urlString: "https://itunes.apple.com/us/rss/topmusicvideos/limit=50/json", completion: didLoadData)
+        api.loadData(urlString: "https://itunes.apple.com/us/rss/topmusicvideos/limit=200/json", completion: didLoadData)
     }
     
     // Deinit - is called just as the object is about to be de-allocated, remove the observer
@@ -100,14 +100,21 @@ class MusicVideoTVC: UITableViewController {
         return videos.count
     }
 
+    private struct storyboard {
+        static let cellReuseIdentifier = "cell"
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: storyboard.cellReuseIdentifier, for: indexPath) as! MusicVideoTableViewCell
 
+        cell.video = videos[indexPath.row]
+        
         // Configure the cell...
-        let video = videos[indexPath.row]
-        cell.textLabel?.text = ("\(indexPath.row + 1)")
-        cell.detailTextLabel?.text = video.vName
+        // below is not needed any more, as we use above the public api access through cell.video
+        // let video = videos[indexPath.row]
+        // cell.textLabel?.text = ("\(indexPath.row + 1)")
+        // cell.detailTextLabel?.text = video.vName
         
         return cell
     }
