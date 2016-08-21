@@ -8,15 +8,20 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var videos = [Videos]()
+    
+    @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var displayLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.dataSource = self
+        tableView.delegate = self
         
         // adding an observer
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.reachabilityStatusChanged), name: "reachStatusChanged" as NSNotification.Name, object: nil)
@@ -25,7 +30,7 @@ class ViewController: UIViewController {
         
         // call API
         let api = APIManager()
-        api.loadData(urlString: "https://itunes.apple.com/us/rss/topmusicvideos/limit=10/json", completion: didLoadData)
+        api.loadData(urlString: "https://itunes.apple.com/us/rss/topmusicvideos/limit=50/json", completion: didLoadData)
     }
     
     func didLoadData(videos: [Videos]){
@@ -34,6 +39,7 @@ class ViewController: UIViewController {
         for (index,item) in videos.enumerated() {
             print("\(index).  \(item.vName)")
         }
+        tableView.reloadData()
     }
     
     func reachabilityStatusChanged(){
@@ -52,6 +58,31 @@ class ViewController: UIViewController {
     deinit {
         NotificationCenter.default.removeObserver(self, name: "reachStatusChanged" as NSNotification.Name, object: nil)
     }
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int { // Default is 1 if not implemented
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+        // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+        return videos.count
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let video = videos[indexPath.row]
+        cell.textLabel?.text = ("\(indexPath.row + 1)")
+        cell.detailTextLabel?.text = video.vName
+        return cell
+        
+    }
+    
+    
+
+    
     
 }
 
