@@ -25,35 +25,35 @@
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sd4-Eb-iO5">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="149" id="etH-9R-TJv"/>
+                                                <constraint firstAttribute="width" constant="134" id="geO-MO-bRL"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="musicTitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpO-v5-BMe">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0QJ-Uu-EZ2">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="56" id="cWP-SD-gmG"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0QJ-Uu-EZ2">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="39" id="d9h-Wa-MTM"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="musicTitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpO-v5-BMe">
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="NpO-v5-BMe" firstAttribute="leading" secondItem="0QJ-Uu-EZ2" secondAttribute="trailing" constant="16" id="KHe-TY-qfI"/>
-                                        <constraint firstItem="NpO-v5-BMe" firstAttribute="top" secondItem="MUm-hG-1JF" secondAttribute="topMargin" id="KMo-wi-RKT"/>
-                                        <constraint firstItem="NpO-v5-BMe" firstAttribute="trailing" secondItem="MUm-hG-1JF" secondAttribute="trailingMargin" id="NsZ-d5-aPH"/>
-                                        <constraint firstItem="NpO-v5-BMe" firstAttribute="bottom" secondItem="MUm-hG-1JF" secondAttribute="bottomMargin" id="TAR-ww-nfB"/>
-                                        <constraint firstItem="Sd4-Eb-iO5" firstAttribute="leading" secondItem="MUm-hG-1JF" secondAttribute="leadingMargin" id="TVG-2A-thH"/>
-                                        <constraint firstItem="Sd4-Eb-iO5" firstAttribute="top" secondItem="MUm-hG-1JF" secondAttribute="topMargin" constant="5" id="Vqb-Uu-rbp"/>
-                                        <constraint firstItem="0QJ-Uu-EZ2" firstAttribute="leading" secondItem="Sd4-Eb-iO5" secondAttribute="trailing" constant="8" symbolic="YES" id="Wct-9g-Ifz"/>
-                                        <constraint firstItem="0QJ-Uu-EZ2" firstAttribute="centerY" secondItem="NpO-v5-BMe" secondAttribute="centerY" id="bf2-La-hkO"/>
-                                        <constraint firstItem="Sd4-Eb-iO5" firstAttribute="centerY" secondItem="0QJ-Uu-EZ2" secondAttribute="centerY" id="s00-W3-Exk"/>
-                                        <constraint firstItem="0QJ-Uu-EZ2" firstAttribute="top" secondItem="MUm-hG-1JF" secondAttribute="topMargin" constant="46" id="xoM-Zr-Hp8"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="NpO-v5-BMe" secondAttribute="bottom" constant="17" id="8EE-bb-kBG"/>
+                                        <constraint firstItem="Sd4-Eb-iO5" firstAttribute="top" secondItem="MUm-hG-1JF" secondAttribute="topMargin" constant="13" id="Fox-Pc-aWY"/>
+                                        <constraint firstItem="Sd4-Eb-iO5" firstAttribute="leading" secondItem="MUm-hG-1JF" secondAttribute="leading" id="GRD-OP-yqQ"/>
+                                        <constraint firstItem="0QJ-Uu-EZ2" firstAttribute="top" secondItem="MUm-hG-1JF" secondAttribute="topMargin" constant="43" id="bSB-Yl-957"/>
+                                        <constraint firstItem="NpO-v5-BMe" firstAttribute="leading" secondItem="0QJ-Uu-EZ2" secondAttribute="trailing" constant="8" symbolic="YES" id="e57-S7-Odo"/>
+                                        <constraint firstItem="0QJ-Uu-EZ2" firstAttribute="leading" secondItem="Sd4-Eb-iO5" secondAttribute="trailing" constant="8" symbolic="YES" id="oJE-7f-kLw"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="NpO-v5-BMe" secondAttribute="trailing" constant="39" id="oSB-wd-QJz"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Sd4-Eb-iO5" secondAttribute="bottom" constant="8" id="rPc-ks-I50"/>
+                                        <constraint firstItem="NpO-v5-BMe" firstAttribute="top" secondItem="MUm-hG-1JF" secondAttribute="topMargin" constant="20" id="tNj-az-vca"/>
+                                        <constraint firstItem="0QJ-Uu-EZ2" firstAttribute="centerY" secondItem="NpO-v5-BMe" secondAttribute="centerY" id="uTT-vV-Vmf"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

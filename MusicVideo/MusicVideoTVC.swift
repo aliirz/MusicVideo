@@ -16,11 +16,16 @@ class MusicVideoTVC: UITableViewController {
         super.viewDidLoad()
         
         
-        // adding an observer
+        // add observers
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.reachabilityStatusChanged), name: "reachStatusChanged" as NSNotification.Name, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(preferredFontChange), name: NSNotification.Name.UIContentSizeCategoryDidChange as NSNotification.Name, object: nil)
         
         reachabilityStatusChanged()
         
+    }
+    
+    func preferredFontChange(){
+        print("The preferred font has changed")
     }
     
     func didLoadData(videos: [Videos]){
@@ -82,9 +87,10 @@ class MusicVideoTVC: UITableViewController {
         api.loadData(urlString: "https://itunes.apple.com/us/rss/topmusicvideos/limit=200/json", completion: didLoadData)
     }
     
-    // Deinit - is called just as the object is about to be de-allocated, remove the observer
+    // Deinit - is called just as the object is about to be de-allocated, remove observers
     deinit {
         NotificationCenter.default.removeObserver(self, name: "reachStatusChanged" as NSNotification.Name, object: nil)
+        NotificationCenter.default.removeObserver(self, name: "preferredFontChange" as NSNotification.Name, object: nil)
     }
     
 
