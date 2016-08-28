@@ -5,6 +5,9 @@
 //  Created by Mubbasher Khanzada on 06/08/2016.
 //  Copyright © 2016 EnablingPeople. All rights reserved.
 //
+// Object Oriented Programming resources
+// https://www.raywenderlich.com/81952/intro-object-oriented-design-swift-part-1
+
 
 import UIKit
 
@@ -23,7 +26,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.dataSource = self
         tableView.delegate = self
         
-        // adding an observer
+        // add observers
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.reachabilityStatusChanged), name: "reachStatusChanged" as NSNotification.Name, object: nil)
         
         reachabilityStatusChanged()

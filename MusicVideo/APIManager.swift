@@ -4,6 +4,11 @@
 //  Created by Mubbasher Khanzada on 08/08/2016.
 //  Copyright © 2016 EnablingPeople. All rights reserved.
 
+// Note: For multi-threaded application, GCD, DispatchQueue, check
+// https://www.youtube.com/watch?v=zfCZTnEZ6Dw
+// https://www.youtube.com/watch?v=EGUpFGwP1hM
+// https://www.youtube.com/watch?v=kVPVJrAmSAs
+
 import Foundation
 
 class APIManager {
