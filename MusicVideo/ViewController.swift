@@ -5,8 +5,8 @@
 //  Created by Mubbasher Khanzada on 06/08/2016.
 //  Copyright © 2016 EnablingPeople. All rights reserved.
 //
-// Object Oriented Programming resources
-// https://www.raywenderlich.com/81952/intro-object-oriented-design-swift-part-1
+// Object Oriented Programming resources: https://www.raywenderlich.com/81952/intro-object-oriented-design-swift-part-1
+// size classes: https://developer.apple.com/videos/play/wwdc2016/222/
 
 
 import UIKit
