@@ -14,7 +14,7 @@ class SettingTVC: UITableViewController {
     @IBOutlet weak var aboutDisplay: UILabel!
     @IBOutlet weak var feedBackDisplay: UILabel!
     @IBOutlet weak var securityDisplay: UILabel!
-    @IBOutlet weak var touchID: UISwitch!
+    @IBOutlet weak var touchID: UISwitch!   // UISwitch gets initialized by XCode, doesn't need checking / initialization like Slider
     @IBOutlet weak var bestImageDisplay: UILabel!
     
     @IBOutlet weak var APICount: UILabel!
@@ -31,6 +31,20 @@ class SettingTVC: UITableViewController {
         // get touchID setting from UserDefaults
         touchID.isOn = UserDefaults.standard.bool(forKey: "SecSetting")
         
+        // Slider count form UserDefaults (also check and protect against first time nil value execution
+        if UserDefaults.standard.object(forKey: "APICount") != nil {
+            let theValue = UserDefaults.standard.object(forKey: "APICount") as! Int
+            APICount.text = ("\(theValue)")
+            sliderCount.value = Float(theValue)
+        }
+        
+    }
+    
+    // Slider values from the Slider
+    @IBAction func sliderValueChanged(_ sender: AnyObject) {
+        let defaults = UserDefaults.standard
+        defaults.set(Int(sliderCount.value), forKey: "APICount")
+        APICount.text = String(Int(sliderCount.value))
     }
     
     // store touchID setting in UserDefaults
