@@ -27,8 +27,8 @@ class MusicVideoTableViewCell: UITableViewCell {
         musicTitle.font = UIFont.preferredFont(forTextStyle: UIFontTextStyleSubheadline)
         rank.font = UIFont.preferredFont(forTextStyle: UIFontTextStyleSubheadline)
         musicTitle.text = video?.vName
-        rank.text = String(video!.vRank)    //could also do  = ("\(video?.vRank)")
-        //musicImage.image = UIImage(named: "imageNotAvailable")
+        rank.text = String(video!.vRank)   //could also do  = ("\(video?.vRank)")
+        //musicImage.image = UIImage(named: "imageNotAvailable") // not required anymore
         
         if video?.vImageData != nil {
             print("Get data from array...")
