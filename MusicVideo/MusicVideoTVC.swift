@@ -87,7 +87,7 @@ class MusicVideoTVC: UITableViewController {
         api.loadData(urlString: "https://itunes.apple.com/us/rss/topmusicvideos/limit=200/json", completion: didLoadData)
     }
     
-    // Deinit - is called just as the object is about to be de-allocated, remove observers
+    // Deinit - remove observers as object is de-allocated
     deinit {
         NotificationCenter.default.removeObserver(self, name: "reachStatusChanged" as NSNotification.Name, object: nil)
         NotificationCenter.default.removeObserver(self, name: "preferredFontChange" as NSNotification.Name, object: nil)
