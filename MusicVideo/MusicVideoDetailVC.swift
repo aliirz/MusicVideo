@@ -33,9 +33,4 @@ class MusicVideoDetailVC: UIViewController {
         }
     }
     
-    
-    
-    
-    
-    
 }

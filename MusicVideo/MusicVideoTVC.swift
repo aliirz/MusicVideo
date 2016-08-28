@@ -91,8 +91,7 @@ class MusicVideoTVC: UITableViewController {
     deinit {
         NotificationCenter.default.removeObserver(self, name: "reachStatusChanged" as NSNotification.Name, object: nil)
         NotificationCenter.default.removeObserver(self, name: "preferredFontChange" as NSNotification.Name, object: nil)
-    }
-    
+    }    
 
     // MARK: - Table view data source
 
@@ -126,7 +125,6 @@ class MusicVideoTVC: UITableViewController {
         return cell
     }
     
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
