@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="92" width="414" height="145"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A0V-5o-15e" id="MUm-hG-1JF">
-                                    <frame key="frameInset" width="414" height="144"/>
+                                    <frame key="frameInset" width="414" height="144.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sd4-Eb-iO5">
@@ -60,7 +60,7 @@
                                     <outlet property="musicImage" destination="Sd4-Eb-iO5" id="0o6-tM-Kag"/>
                                     <outlet property="musicTitle" destination="NpO-v5-BMe" id="Ftm-JL-8RO"/>
                                     <outlet property="rank" destination="0QJ-Uu-EZ2" id="9v6-Je-bb9"/>
-                                    <segue destination="DnI-9H-IMs" kind="show" id="Dmc-y6-SIe"/>
+                                    <segue destination="DnI-9H-IMs" kind="show" identifier="musicDetail" id="Dmc-y6-SIe"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -88,11 +88,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DRS-6G-baD">
-                                <frame key="frameInset" minX="1" minY="132" width="412" height="297"/>
+                                <frame key="frameInset" minX="1" minY="133" width="412" height="297"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="vName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhP-oZ-vVC">
-                                <frame key="frameInset" minX="7" minY="64" width="400" height="60"/>
+                                <frame key="frameInset" minX="7" minY="65" width="400" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -106,8 +106,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="vPrice: $1.99" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9a1-6T-mSY">
-                                <frame key="frameInset" minX="315" minY="430" width="76" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="vPrice: $1.99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9a1-6T-mSY">
+                                <frame key="frameInset" minX="315" minY="432" width="76" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -116,7 +116,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="vRights: abc Studio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xd-tb-4wT">
                                 <frame key="frameInset" minX="1" minY="470" width="415" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -136,6 +136,13 @@
                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </toolbarItems>
+                    <connections>
+                        <outlet property="vGenre" destination="iiS-nm-RpU" id="QHB-4c-3yf"/>
+                        <outlet property="vName" destination="fhP-oZ-vVC" id="RVx-cO-gSQ"/>
+                        <outlet property="vPrice" destination="9a1-6T-mSY" id="dD4-w3-X4c"/>
+                        <outlet property="vRights" destination="4xd-tb-4wT" id="TWl-89-QJz"/>
+                        <outlet property="videoImage" destination="DRS-6G-baD" id="deo-kG-QEw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a10-3i-228" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
