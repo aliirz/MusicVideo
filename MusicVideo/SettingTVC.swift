@@ -42,7 +42,6 @@ class SettingTVC: UITableViewController {
         } else {
             defaults.set(false, forKey: "SecSetting")
         }
-        
     }
     
     func preferredFontChange() {
