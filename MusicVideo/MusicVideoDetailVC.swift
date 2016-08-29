@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
 class MusicVideoDetailVC: UIViewController {
     var videos:Videos!
@@ -33,4 +35,13 @@ class MusicVideoDetailVC: UIViewController {
         }
     }
     
+    @IBAction func playVideo(_ sender: UIBarButtonItem) {
+        let url = NSURL(string: videos.vVideoUrl)!
+        let player = AVPlayer(url: url as URL)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+        self.present(playerViewController, animated: true) {
+            playerViewController.player?.play()
+        }
+    }
 }
