@@ -12,8 +12,7 @@
 import Foundation
 
 class APIManager {
-    
-
+ 
     func loadData(urlString:String, completion: ([Videos]) -> Void ) {
             let config = URLSessionConfiguration.ephemeral
             let session = URLSession(configuration: config)
@@ -63,4 +62,5 @@ class APIManager {
             task.resume()
         }
 }
+
 

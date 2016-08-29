@@ -90,7 +90,7 @@ class Videos {
         if let img = data["im:image"] as? JSONArray,
             let image = img[2] as? JSONDictionary,
             let immage = image["label"] as? String {
-            _vImageUrl = String(immage.replacingOccurrences(of: "100x100", with: "100x100"))
+            _vImageUrl = String(immage.replacingOccurrences(of: "100x100", with: "600x600"))
         } else {
             _vImageUrl = ""
             print("Image Element in JSON is unexpected")
