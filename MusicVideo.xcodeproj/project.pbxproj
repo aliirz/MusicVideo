@@ -155,11 +155,11 @@
 		DE2903261D56575200636CD0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DE2153D31D733BB9004499A3 /* SettingTVC.swift */,
 				DE78D6311D7227B7000D239F /* MusicVideoDetailVC.swift */,
 				DE1006D41D69E393006C0092 /* MusicVideoTVC.swift */,
 				DE1006D61D6A03F2006C0092 /* MusicVideoTableViewCell.swift */,
 				DE2902F91D5646F900636CD0 /* ViewController.swift */,
+				DE2153D31D733BB9004499A3 /* SettingTVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";

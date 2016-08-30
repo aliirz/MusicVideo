@@ -100,11 +100,10 @@ class MusicVideoTVC: UITableViewController {
         // additional reading: http://www.globalnerdy.com/2016/08/22/how-to-work-with-dates-and-times-in-swift-3-part-2-dateformatter/
         
         let myFormatter = DateFormatter()
-        myFormatter.dateStyle = .medium
+        myFormatter.dateFormat = "E, dd MMM yyyy   HH:mm:ss"
         let refreshDate = myFormatter.string(from: NSDate() as Date) // forced cast always succeeds, no unwrapping required
         
         refreshControl?.attributedTitle = NSAttributedString(string: "\(refreshDate)")
-        
     }
     
     // call API

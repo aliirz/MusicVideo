@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class SettingTVC: UITableViewController {
+class SettingTVC: UITableViewController, MFMailComposeViewControllerDelegate {
     
     
     @IBOutlet weak var aboutDisplay: UILabel!
@@ -68,6 +69,51 @@ class SettingTVC: UITableViewController {
         bestImageDisplay.font = UIFont.preferredFont(forTextStyle: UIFontTextStyleSubheadline)
         APICount.font = UIFont.preferredFont(forTextStyle: UIFontTextStyleSubheadline)
         
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 && indexPath.row == 1 {
+            let mailComposeViewController = configureMail()
+            if MFMailComposeViewController.canSendMail() {
+                self.present(mailComposeViewController, animated: true, completion: nil)
+            } else {
+                // no mail account set up on phone
+                mailAlert()
+            }
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+    
+    func configureMail() -> MFMailComposeViewController {
+        let mailComposeVC = MFMailComposeViewController()
+        mailComposeVC.mailComposeDelegate = self
+        mailComposeVC.setToRecipients(["mubb20@gmail.com"])
+        mailComposeVC.setSubject("Music Video App Feedback")
+        mailComposeVC.setMessageBody("Hi Mubb,\n\n I would like to share following feedback...\n", isHTML: false)
+        return mailComposeVC
+    }
+    
+    func mailAlert() {
+        let alertController: UIAlertController = UIAlertController(title: "Alert", message: "No email account set up for phone", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { action -> Void in
+            // do something if required
+        }
+    
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    // protocol
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result:MFMailComposeResult, error: Error?) {
+        
+        switch result.rawValue {
+        case MFMailComposeResult.cancelled.rawValue: print("Mail cancelled")
+        case MFMailComposeResult.saved.rawValue: print("Mail saved")
+        case MFMailComposeResult.sent.rawValue: print("Mail sent")
+        case MFMailComposeResult.failed.rawValue: print("Mail failed")
+        default: print("Unknown issue")
+        }
+        self.dismiss(animated: true, completion: nil)
     }
     
     // Deinit - remove observers as object is de-allocated
