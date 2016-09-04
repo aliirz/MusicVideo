@@ -4,14 +4,18 @@
 //
 //  Created by Mubbasher Khanzada on 27/08/2016.
 //  Copyright © 2016 EnablingPeople. All rights reserved.
-//
+// You are a millionaire.... ego meter
 
 import UIKit
 import AVKit
 import AVFoundation
+import LocalAuthentication
 
 class MusicVideoDetailVC: UIViewController {
+    
+    var securitySwitch: Bool = false
     var videos:Videos!
+    
     // Outlets
     @IBOutlet weak var vName: UILabel!
     @IBOutlet weak var videoImage: UIImageView!
@@ -36,7 +40,86 @@ class MusicVideoDetailVC: UIViewController {
     }
     
     @IBAction func socialMedia(_ sender: UIBarButtonItem) {
-        shareMedia()
+        securitySwitch = UserDefaults.standard.bool(forKey: "SecSetting")
+        switch securitySwitch {
+        case true:
+            touchIDCheck()
+        default:
+            shareMedia()
+        }
+    }
+    
+    func touchIDCheck() {
+        // create an alert
+        let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Continue", style: .cancel, handler: nil))
+        
+        // create Local Authetication context
+        let context = LAContext()
+        var touchIDError : NSError?
+        let reasonString = "Touch-ID authentication is needed to share information on social media"
+        
+        // check if we can access Local Device Authentication
+        if context.canEvaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, error: &touchIDError) {
+            // check what the authentication response was
+            context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: reasonString, reply: { (success, policyError) -> Void in
+                if success {
+                    // user authenticated using Local Device Authentication successfully
+                    DispatchQueue.main.async { [unowned self] in
+                    self.shareMedia()
+                    }
+                } else {
+                    alert.title = "Unsuccessful!"
+                    
+                    switch LAError(rawValue: policyError!.code)! {
+                    case .AppCancel:
+                        alert.message = "Authentication was cancelled by application"
+                    case .AuthenticationFailed:
+                        alert.message = "The user failed to provide valid credentials"
+                    case .PassCodeNotSet:
+                        alert.message = "Passcode is not set on the device"
+                    case .SystemCancel:
+                        alert.message = "Too many failed attempts"
+                    case .UserCancel:
+                        alert.message = "You cancelled  the request"
+                    case .UserFallBack:
+                        alert.message = "Password not accepted, must use Touch-ID"
+                    default:
+                        alert.message = "Unable to authenticate!"
+                    }
+                    
+                    // show the alert
+                    DispatchQueue.main.async { [unowned self] in
+                    self.presentedViewController(alert, animated: true, completion: nil)
+                    }
+                }
+                } else {
+                // unable to access local device authentication
+                // set the error title
+                alert.title = "Error"
+                
+                // set the error alert messgage with more information
+                switch LAerror(rawValue: touchIDError!.code)! {
+                case .TouchIDNotEnrolled:
+                alert.message = "Touch ID is not enrolled"
+                case .TouchIDNotAvailable:
+                alert.message = "TouchID is not available on the device"
+                case .PasscodeNotSet:
+                alert.message = "Passcode has not been set"
+                case .InvalidContext:
+                alert.message = "The context is invalid"
+                default:
+                alert.message = "Local Authentication not available"
+                }
+                
+                // show the alert
+                DispatchQueue.main.async { [unowned self] in
+                self.presentedViewController(alert, animated: true, completion: nil)
+                
+            }
+            
+        }
+        
     }
     
     func shareMedia() {
@@ -84,4 +167,6 @@ class MusicVideoDetailVC: UIViewController {
             playerViewController.player?.play()
         }
     }
+
+}
 }
