@@ -11,7 +11,10 @@ import UIKit
 class MusicVideoTVC: UITableViewController {
     
     var videos = [Videos]()
+    var filterSearch = [Videos]()
     var limit = 10
+    
+    let resultSearchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +40,17 @@ class MusicVideoTVC: UITableViewController {
         }
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.red]
         title = ("The iTunes top \(limit) Music Videos")
+        
+        // set up the search controller
+        // resultSearchController.searchResultsUpdater = self  // setting up with protocol
+        definesPresentationContext = true
+        resultSearchController.dimsBackgroundDuringPresentation = false
+        resultSearchController.searchBar.placeholder = "Search for Artist or song"
+        resultSearchController.searchBar.searchBarStyle = UISearchBarStyle.prominent
+        
+        // add the search bar to tableview
+        tableView.tableHeaderView = resultSearchController.searchBar
+        
         
         tableView.reloadData()
     }
@@ -127,7 +141,9 @@ class MusicVideoTVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        if resultSearchController.active {
+            return filterSearch.count
+        }
         return videos.count
     }
 
@@ -139,14 +155,13 @@ class MusicVideoTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: storyboard.cellReuseIdentifier, for: indexPath) as! MusicVideoTableViewCell
-
-        cell.video = videos[indexPath.row]
         
-        // Configure the cell...
-        // below is not needed any more, as we use above the public api access through cell.video
-        // let video = videos[indexPath.row]
-        // cell.textLabel?.text = ("\(indexPath.row + 1)")
-        // cell.detailTextLabel?.text = video.vName
+        if resultSearchController.isActive {
+            cell.video = filterSearch[indexPath.row]
+            
+        } else {
+            cell.video = videos[indexPath.row]
+        }
         
         return cell
     }
@@ -191,7 +206,14 @@ class MusicVideoTVC: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == storyboard.sequeIdentifier {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let video = videos[indexPath.row]
+                let video : Videos
+                
+                if resultSearchController.active {
+                    let video = filterSearch[indexPath.row]
+                } else {
+                    let video = videos[indexPath.row]
+                }
+                
                 let dvc = segue.destination as! MusicVideoDetailVC
                 dvc.videos = video
                 
