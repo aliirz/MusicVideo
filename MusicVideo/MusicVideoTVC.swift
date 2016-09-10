@@ -43,8 +43,8 @@ class MusicVideoTVC: UITableViewController {
         
         // set up the search controller
         // resultSearchController.searchResultsUpdater = self  // setting up with protocol
-        definesPresentationContext = true
-        resultSearchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true   // ensure search bar removed when going to other screens
+        resultSearchController.dimsBackgroundDuringPresentation = false  // very important, and a typical gotcha- where if not set up correctly won't allow to go to search results
         resultSearchController.searchBar.placeholder = "Search for Artist or song"
         resultSearchController.searchBar.searchBarStyle = UISearchBarStyle.prominent
         
@@ -141,7 +141,7 @@ class MusicVideoTVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if resultSearchController.active {
+        if resultSearchController.isActive {
             return filterSearch.count
         }
         return videos.count
@@ -208,10 +208,10 @@ class MusicVideoTVC: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let video : Videos
                 
-                if resultSearchController.active {
-                    let video = filterSearch[indexPath.row]
+                if resultSearchController.isActive {
+                    video = filterSearch[indexPath.row]
                 } else {
-                    let video = videos[indexPath.row]
+                    video = videos[indexPath.row]
                 }
                 
                 let dvc = segue.destination as! MusicVideoDetailVC
