@@ -8,7 +8,8 @@
 
 import UIKit
 
-class MusicVideoTVC: UITableViewController, UISearchResultsUpdating {
+class MusicVideoTVC: UITableViewController {
+// no protocol here, using class extention in MyExtensions to use delegate
     
     var videos = [Videos]()
     var filterSearch = [Videos]()
@@ -43,7 +44,7 @@ class MusicVideoTVC: UITableViewController, UISearchResultsUpdating {
         resultSearchController.searchResultsUpdater = self  // setting up with protocol
         definesPresentationContext = true   // ensure search bar removed when going to other screens
         resultSearchController.dimsBackgroundDuringPresentation = false  // very important, and a typical gotcha- where if not set up correctly won't allow to go to search results
-        resultSearchController.searchBar.placeholder = "Search for Artist or song"
+        resultSearchController.searchBar.placeholder = "Search for a song, artist or rank"
         resultSearchController.searchBar.searchBarStyle = UISearchBarStyle.prominent
         
         // add the search bar to tableview
@@ -242,3 +243,12 @@ class MusicVideoTVC: UITableViewController, UISearchResultsUpdating {
     }
     
 }
+
+//extension MusicVideoTVC: UISearchResultsUpdating {
+//func updateSearchResults(for searchController: UISearchController) {
+//        searchController.searchBar.text!.lowercased()
+//    filterSearch(searchController.searchBar.text!)
+//    }
+//}
+
+// TO CONSIDER: lower resolution images if connection is not WiFi or best res switch not on. 

@@ -20,6 +20,7 @@
 		DE29032A1D58666E00636CD0 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2903291D58666E00636CD0 /* APIManager.swift */; };
 		DE29B9B71D60FD99007ADB1E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE29B9B61D60FD99007ADB1E /* Constants.swift */; };
 		DE29B9B91D619E53007ADB1E /* MusicVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE29B9B81D619E53007ADB1E /* MusicVideo.swift */; };
+		DE6A2EAF1D844428001B09E4 /* MyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6A2EAE1D844428001B09E4 /* MyExtensions.swift */; };
 		DE78D6321D7227B7000D239F /* MusicVideoDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE78D6311D7227B7000D239F /* MusicVideoDetailVC.swift */; };
 		DEF9168C1D66968A00E83752 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = DEF9168B1D66968A00E83752 /* Reachability.m */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,7 @@
 		DE2903291D58666E00636CD0 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		DE29B9B61D60FD99007ADB1E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DE29B9B81D619E53007ADB1E /* MusicVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideo.swift; sourceTree = "<group>"; };
+		DE6A2EAE1D844428001B09E4 /* MyExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyExtensions.swift; sourceTree = "<group>"; };
 		DE78D6311D7227B7000D239F /* MusicVideoDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideoDetailVC.swift; sourceTree = "<group>"; };
 		DEF916891D66968A00E83752 /* MusicVideo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MusicVideo-Bridging-Header.h"; sourceTree = "<group>"; };
 		DEF9168A1D66968A00E83752 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			children = (
 				DE78D6311D7227B7000D239F /* MusicVideoDetailVC.swift */,
 				DE1006D41D69E393006C0092 /* MusicVideoTVC.swift */,
+				DE6A2EAE1D844428001B09E4 /* MyExtensions.swift */,
 				DE1006D61D6A03F2006C0092 /* MusicVideoTableViewCell.swift */,
 				DE2902F91D5646F900636CD0 /* ViewController.swift */,
 				DE2153D31D733BB9004499A3 /* SettingTVC.swift */,
@@ -348,6 +351,7 @@
 				DE29B9B91D619E53007ADB1E /* MusicVideo.swift in Sources */,
 				DE1006D71D6A03F2006C0092 /* MusicVideoTableViewCell.swift in Sources */,
 				DE2902F81D5646F900636CD0 /* AppDelegate.swift in Sources */,
+				DE6A2EAF1D844428001B09E4 /* MyExtensions.swift in Sources */,
 				DE2153D41D733BB9004499A3 /* SettingTVC.swift in Sources */,
 				DEF9168C1D66968A00E83752 /* Reachability.m in Sources */,
 				DE29B9B71D60FD99007ADB1E /* Constants.swift in Sources */,
