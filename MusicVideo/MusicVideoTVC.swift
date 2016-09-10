@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MusicVideoTVC: UITableViewController {
+class MusicVideoTVC: UITableViewController, UISearchResultsUpdating {
     
     var videos = [Videos]()
     var filterSearch = [Videos]()
@@ -19,13 +19,11 @@ class MusicVideoTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         // add observers
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.reachabilityStatusChanged), name: "reachStatusChanged" as NSNotification.Name, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(preferredFontChange), name: NSNotification.Name.UIContentSizeCategoryDidChange as NSNotification.Name, object: nil)
         
         reachabilityStatusChanged()
-        
     }
     
     func preferredFontChange(){
@@ -42,7 +40,7 @@ class MusicVideoTVC: UITableViewController {
         title = ("The iTunes top \(limit) Music Videos")
         
         // set up the search controller
-        // resultSearchController.searchResultsUpdater = self  // setting up with protocol
+        resultSearchController.searchResultsUpdater = self  // setting up with protocol
         definesPresentationContext = true   // ensure search bar removed when going to other screens
         resultSearchController.dimsBackgroundDuringPresentation = false  // very important, and a typical gotcha- where if not set up correctly won't allow to go to search results
         resultSearchController.searchBar.placeholder = "Search for Artist or song"
@@ -50,8 +48,7 @@ class MusicVideoTVC: UITableViewController {
         
         // add the search bar to tableview
         tableView.tableHeaderView = resultSearchController.searchBar
-        
-        
+                
         tableView.reloadData()
     }
     
@@ -100,7 +97,11 @@ class MusicVideoTVC: UITableViewController {
     
     @IBAction func refresh(_ sender: UIRefreshControl) {
         refreshControl?.endRefreshing() // stop the spinner
-        runAPI()
+        if resultSearchController.isActive { // don't refresh when inside the search results
+            refreshControl?.attributedTitle = NSAttributedString(string: "No refresh allowed in search")
+        } else {
+            runAPI()
+        }
     }
     
     // Fetch slider count from UserDefaults
@@ -225,4 +226,19 @@ class MusicVideoTVC: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
 
+    // put the protocol implementation as a class extension
+//    func updateSearchResults(for searchController: UISearchController) {
+//        searchController.searchBar.text!.lowercased()
+//        filterSearch(searchController.searchBar.text!)
+//    }
+    
+    func filterSearch(searchText: String) {
+        filterSearch = videos.filter { videos in
+            return  videos.vArtist.lowercased().contains(searchText.lowercased()) ||
+                    videos.vName.lowercased().contains(searchText.lowercased()) ||
+                    String(videos.vRank).lowercased().contains(searchText.lowercased())
+        }
+        tableView.reloadData()
+    }
+    
 }
