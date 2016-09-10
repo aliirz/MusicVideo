@@ -10,11 +10,10 @@ import UIKit
 
 class MusicVideoTableViewCell: UITableViewCell {
 
-    var video : Videos? {
-        didSet{
+    var video: Videos? {
+        didSet {
             updateCell()
         }
-        
     }
     
     @IBOutlet weak var musicImage: UIImageView!
@@ -30,30 +29,31 @@ class MusicVideoTableViewCell: UITableViewCell {
         rank.text = String(video!.vRank)   //could also do  = ("\(video?.vRank)")
         //musicImage.image = UIImage(named: "imageNotAvailable") // not required anymore
         
-        if video?.vImageData != nil {
-            print("Get data from array...")
+        if video!.vImageData != nil {
+            print("Get data from array ...")
             musicImage.image = UIImage(data: video!.vImageData! as Data)
         } else {
-            getVideoImage(video: video!, imageView: musicImage)
-            print("get images in background thread")
+            getVideoImage(video!, imageView: musicImage)
+            print("Get images in background thread")
         }
-    
     }
     
-    func getVideoImage(video: Videos, imageView: UIImageView){
-        
-        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
-            let data = NSData(contentsOf: NSURL(string: video.vImageUrl)! as URL)
+    func getVideoImage(_ video: Videos, imageView : UIImageView) {
+        // Background thread
+        // DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
+            let data = try? Data(contentsOf: URL(string: video.vImageUrl)!)
             var image : UIImage?
             if data != nil {
                 video.vImageData = data
-                image = UIImage(data: data! as Data)
+                image = UIImage(data: data!)
             }
+            
+            // move back to Main Queue
+            DispatchQueue.main.async {
+                imageView.image = image
+            }
+            
         }
     }
-        
-    
-    
-    
-    
 }
