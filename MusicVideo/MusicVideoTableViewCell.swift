@@ -42,16 +42,14 @@ class MusicVideoTableViewCell: UITableViewCell {
     
     func getVideoImage(video: Videos, imageView: UIImageView){
         
-        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async{
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
             let data = NSData(contentsOf: NSURL(string: video.vImageUrl)! as URL)
             var image : UIImage?
             if data != nil {
                 video.vImageData = data
                 image = UIImage(data: data! as Data)
             }
-            
         }
-        
     }
         
     
