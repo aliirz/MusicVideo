@@ -9,7 +9,7 @@
 import UIKit
 
 class MusicVideoTVC: UITableViewController {
-// no protocol here, using class extention in MyExtensions to use delegate
+// no protocol here, using class extention in MyExtensions to use delegates
     
     var videos = [Videos]()
     var filterSearch = [Videos]()
