@@ -11,7 +11,6 @@
 		DE1006D71D6A03F2006C0092 /* MusicVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1006D61D6A03F2006C0092 /* MusicVideoTableViewCell.swift */; };
 		DE2153D41D733BB9004499A3 /* SettingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2153D31D733BB9004499A3 /* SettingTVC.swift */; };
 		DE2902F81D5646F900636CD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2902F71D5646F900636CD0 /* AppDelegate.swift */; };
-		DE2902FA1D5646F900636CD0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2902F91D5646F900636CD0 /* ViewController.swift */; };
 		DE2902FD1D5646F900636CD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE2902FB1D5646F900636CD0 /* Main.storyboard */; };
 		DE2902FF1D5646F900636CD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE2902FE1D5646F900636CD0 /* Assets.xcassets */; };
 		DE2903021D5646F900636CD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE2903001D5646F900636CD0 /* LaunchScreen.storyboard */; };
@@ -48,7 +47,6 @@
 		DE2153D31D733BB9004499A3 /* SettingTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTVC.swift; sourceTree = "<group>"; };
 		DE2902F41D5646F900636CD0 /* MusicVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE2902F71D5646F900636CD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DE2902F91D5646F900636CD0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DE2902FC1D5646F900636CD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DE2902FE1D5646F900636CD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE2903011D5646F900636CD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -161,7 +159,6 @@
 				DE1006D41D69E393006C0092 /* MusicVideoTVC.swift */,
 				DE6A2EAE1D844428001B09E4 /* MyExtensions.swift */,
 				DE1006D61D6A03F2006C0092 /* MusicVideoTableViewCell.swift */,
-				DE2902F91D5646F900636CD0 /* ViewController.swift */,
 				DE2153D31D733BB9004499A3 /* SettingTVC.swift */,
 			);
 			name = Controller;
@@ -347,7 +344,6 @@
 			files = (
 				DE29032A1D58666E00636CD0 /* APIManager.swift in Sources */,
 				DE78D6321D7227B7000D239F /* MusicVideoDetailVC.swift in Sources */,
-				DE2902FA1D5646F900636CD0 /* ViewController.swift in Sources */,
 				DE29B9B91D619E53007ADB1E /* MusicVideo.swift in Sources */,
 				DE1006D71D6A03F2006C0092 /* MusicVideoTableViewCell.swift in Sources */,
 				DE2902F81D5646F900636CD0 /* AppDelegate.swift in Sources */,

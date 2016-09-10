@@ -9,8 +9,8 @@
 import UIKit
 
 class MusicVideoTableViewCell: UITableViewCell {
-
-    var video: Videos? {
+    
+    var video: Video? {
         didSet {
             updateCell()
         }
@@ -38,22 +38,40 @@ class MusicVideoTableViewCell: UITableViewCell {
         }
     }
     
-    func getVideoImage(_ video: Videos, imageView : UIImageView) {
+    func getVideoImage(_ video: Video, imageView : UIImageView) {
+        
         // Background thread
-        // DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
-        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
-            let data = try? Data(contentsOf: URL(string: video.vImageUrl)!)
-            var image : UIImage?
-            if data != nil {
+        #if swift(>=2.3)
+            DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
+                let data = try? Data(contentsOf: URL(string: video.vImageUrl)!)
+                var image : UIImage?
+                if data != nil {
+                    video.vImageData = data
+                    image = UIImage(data: data!)
+                }
+            }
+        #else
+            DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
+                let data = try? Data(contentsOf: URL(string: video.vImageUrl)!)
+                var image : UIImage?
+                if data != nil {
                 video.vImageData = data
                 image = UIImage(data: data!)
+                }
             }
-            
-            // move back to Main Queue
-            DispatchQueue.main.async {
-                imageView.image = image
-            }
-            
+        #endif
+        
+        let data = try? Data(contentsOf: URL(string: video.vImageUrl)!)
+        var image : UIImage?
+        if data != nil {
+            video.vImageData = data
+            image = UIImage(data: data!)
         }
+        
+        // move back to Main Queue
+        DispatchQueue.main.async {
+            imageView.image = image
+        }
+        
     }
 }

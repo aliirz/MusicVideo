@@ -5,13 +5,16 @@
 //  Created by Mubbasher Khanzada on 21/08/2016.
 //  Copyright © 2016 EnablingPeople. All rights reserved.
 //
+// Object Oriented Programming resources: https://www.raywenderlich.com/81952/intro-object-oriented-design-swift-part-1
+// size classes: https://developer.apple.com/videos/play/wwdc2016/222/
+//
 
 import UIKit
 
 class MusicVideoTVC: UITableViewController {
     // no protocol used here, using class extention in MyExtensions to use delegates
-    var videos = [Videos]()
-    var filterSearch = [Videos]()
+    var videos = [Video]()
+    var filterSearch = [Video]()
     let resultSearchController = UISearchController(searchResultsController: nil)
     var limit = 10
     
@@ -32,7 +35,7 @@ class MusicVideoTVC: UITableViewController {
         print("The preferred Font has changed")
     }
     
-    func didLoadData(_ videos: [Videos]) {
+    func didLoadData(_ videos: [Video]) {
         print(reachabilityStatus)
         self.videos = videos
         for (index, item) in videos.enumerated() {
@@ -213,7 +216,7 @@ class MusicVideoTVC: UITableViewController {
         if segue.identifier == storyboard.segueIdentifier
         {
             if let indexpath = tableView.indexPathForSelectedRow {
-                let video: Videos
+                let video: Video
                 
                 if resultSearchController.isActive {
                     // video = filterSearch[indexPath.row]
