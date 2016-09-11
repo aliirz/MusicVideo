@@ -21,6 +21,8 @@
 		DE29B9B91D619E53007ADB1E /* MusicVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE29B9B81D619E53007ADB1E /* MusicVideo.swift */; };
 		DE6A2EAF1D844428001B09E4 /* MyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6A2EAE1D844428001B09E4 /* MyExtensions.swift */; };
 		DE78D6321D7227B7000D239F /* MusicVideoDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE78D6311D7227B7000D239F /* MusicVideoDetailVC.swift */; };
+		DEB2BD061D8538900036D135 /* Ideas and Snippets.rtf in Resources */ = {isa = PBXBuildFile; fileRef = DEB2BD051D8538900036D135 /* Ideas and Snippets.rtf */; };
+		DEB2BD081D853FB90036D135 /* JSONDataExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB2BD071D853FB90036D135 /* JSONDataExtractor.swift */; };
 		DEF9168C1D66968A00E83752 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = DEF9168B1D66968A00E83752 /* Reachability.m */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,8 @@
 		DE29B9B81D619E53007ADB1E /* MusicVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideo.swift; sourceTree = "<group>"; };
 		DE6A2EAE1D844428001B09E4 /* MyExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyExtensions.swift; sourceTree = "<group>"; };
 		DE78D6311D7227B7000D239F /* MusicVideoDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideoDetailVC.swift; sourceTree = "<group>"; };
+		DEB2BD051D8538900036D135 /* Ideas and Snippets.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "Ideas and Snippets.rtf"; sourceTree = "<group>"; };
+		DEB2BD071D853FB90036D135 /* JSONDataExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDataExtractor.swift; sourceTree = "<group>"; };
 		DEF916891D66968A00E83752 /* MusicVideo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MusicVideo-Bridging-Header.h"; sourceTree = "<group>"; };
 		DEF9168A1D66968A00E83752 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		DEF9168B1D66968A00E83752 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				DE2903291D58666E00636CD0 /* APIManager.swift */,
+				DEB2BD071D853FB90036D135 /* JSONDataExtractor.swift */,
 				DE29B9B81D619E53007ADB1E /* MusicVideo.swift */,
 			);
 			name = Model;
@@ -176,6 +181,7 @@
 		DE2903281D5657B600636CD0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DEB2BD051D8538900036D135 /* Ideas and Snippets.rtf */,
 				DE2903031D5646F900636CD0 /* Info.plist */,
 				DE2902F71D5646F900636CD0 /* AppDelegate.swift */,
 				DE2902FE1D5646F900636CD0 /* Assets.xcassets */,
@@ -317,6 +323,7 @@
 			files = (
 				DE2903021D5646F900636CD0 /* LaunchScreen.storyboard in Resources */,
 				DE2902FF1D5646F900636CD0 /* Assets.xcassets in Resources */,
+				DEB2BD061D8538900036D135 /* Ideas and Snippets.rtf in Resources */,
 				DE2902FD1D5646F900636CD0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +359,7 @@
 				DEF9168C1D66968A00E83752 /* Reachability.m in Sources */,
 				DE29B9B71D60FD99007ADB1E /* Constants.swift in Sources */,
 				DE1006D51D69E393006C0092 /* MusicVideoTVC.swift in Sources */,
+				DEB2BD081D853FB90036D135 /* JSONDataExtractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
