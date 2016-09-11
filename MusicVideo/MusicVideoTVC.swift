@@ -102,9 +102,9 @@ class MusicVideoTVC: UITableViewController {
     
     func getAPICount() {
         
-        if (UserDefaults.standard.object(forKey: "APICNT") != nil)
+        if (UserDefaults.standard.object(forKey: "APICount") != nil)
         {
-            let theValue = UserDefaults.standard.object(forKey: "APICNT") as! Int
+            let theValue = UserDefaults.standard.object(forKey: "APICount") as! Int
             limit = theValue
         }
         
