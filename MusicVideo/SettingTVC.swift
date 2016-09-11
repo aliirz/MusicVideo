@@ -18,8 +18,8 @@ class SettingTVC: UITableViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var touchID: UISwitch!  // UISwitch gets initialized by XCode, doesn't need checking and manual initialization like Slider
     @IBOutlet weak var bestImageDisplay: UILabel!
     @IBOutlet weak var numberOfVideosDisplay: UILabel!
-    @IBOutlet weak var dragTheSliderDisplay: UILabel!
     @IBOutlet weak var APICount: UILabel!
+    @IBOutlet weak var dragTheSliderDisplay: UILabel!
     @IBOutlet weak var sliderCount: UISlider!
     
     override func viewDidLoad() {
@@ -39,7 +39,7 @@ class SettingTVC: UITableViewController, MFMailComposeViewControllerDelegate {
             APICount.text = "\(theValue)"
             sliderCount.value = Float(theValue)
         } else {
-            sliderCount.value = 10.0
+            sliderCount.value = 20.0
             APICount.text = ("\(Int(sliderCount.value))") // converted to string
         }
     }
@@ -89,7 +89,7 @@ class SettingTVC: UITableViewController, MFMailComposeViewControllerDelegate {
     func configureMail() -> MFMailComposeViewController {
         let mailComposeVC = MFMailComposeViewController()
         mailComposeVC.mailComposeDelegate = self
-        mailComposeVC.setToRecipients(["mrudowsky@me.com"])
+        mailComposeVC.setToRecipients(["mubb20@gmail.com"])
         mailComposeVC.setSubject("Music Video App Feedback")
         mailComposeVC.setMessageBody("Hi Mubbasher,\n\n I would like to share the following feedback...\n", isHTML: false)
         return mailComposeVC
