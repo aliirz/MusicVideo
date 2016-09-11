@@ -222,7 +222,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Videos Display" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6H-3a-TH4">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Music Videos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6H-3a-TH4">
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -263,7 +263,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="y4M-LL-BOy" secondAttribute="bottom" constant="46" id="83q-M0-FZb"/>
-                                                <constraint firstItem="y4M-LL-BOy" firstAttribute="trailing" secondItem="deC-2M-8Ec" secondAttribute="trailingMargin" id="RbQ-K7-G9V"/>
+                                                <constraint firstItem="y4M-LL-BOy" firstAttribute="trailing" secondItem="deC-2M-8Ec" secondAttribute="trailingMargin" constant="-117" id="RbQ-K7-G9V"/>
                                                 <constraint firstItem="1ia-JT-v9j" firstAttribute="centerY" secondItem="deC-2M-8Ec" secondAttribute="centerY" id="Sof-Fd-Dlp"/>
                                                 <constraint firstItem="1ia-JT-v9j" firstAttribute="leading" secondItem="deC-2M-8Ec" secondAttribute="leadingMargin" constant="49" id="YLi-qh-gYK"/>
                                                 <constraint firstItem="y4M-LL-BOy" firstAttribute="top" secondItem="deC-2M-8Ec" secondAttribute="topMargin" id="eQE-KD-Bne"/>

@@ -16,7 +16,7 @@ class MusicVideoTVC: UITableViewController {
     var videos = [Video]()
     var filterSearch = [Video]()
     let resultSearchController = UISearchController(searchResultsController: nil)
-    var limit = 10
+    var limit = 20
     
     override func viewDidLoad() {
         super.viewDidLoad()

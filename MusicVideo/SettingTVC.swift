@@ -45,7 +45,7 @@ class SettingTVC: UITableViewController, MFMailComposeViewControllerDelegate {
     }
     
     // Slider values from the Slider
-    @IBAction func valueChanged(_ sender: AnyObject) {
+    @IBAction func sliderValueChanged(_ sender: AnyObject) {
         let defaults = UserDefaults.standard
         defaults.set(Int(sliderCount.value), forKey: "APICount")
         APICount.text = ("\(Int(sliderCount.value))")
